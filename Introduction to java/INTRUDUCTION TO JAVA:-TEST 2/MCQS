@@ -1,0 +1,68 @@
+Q:1   Predict the output
+Send Feedback
+What would be the output of the following code?
+public static void main (String[] args) {
+    short i;
+    for(i=1;i>0;i++)
+    {
+
+    }
+    System.out.print(i);
+}
+
+ANS------->
+
+      B] -32768
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+Q:2  What would be the output of the following code?
+public static void main(String[] args) 
+{ 
+    int i = 0; 
+    for (System.out.print("Hi"); i < 1; i++) 
+        System.out.print("Ninjas"); 
+} 
+
+ANS-------->
+
+     B]  HiNinjas
+     
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+Q:3  Is there any compilation error in the given code?
+public static void main(String agrs[])
+{
+    for(int i=1; i<=10; i++);
+    System.out.print(i);
+}
+
+ANS------------>
+
+      A] YES
+      
+------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+Q:4  Which line of the following code would give an error?
+public static void main(String[] args)
+{
+  int a=5,b=4;
+  System.out.println(a*=b);//line 1
+  System.out.println(a=(a==b));//line 2
+  System.out.println(a==b);//line 3
+}
+
+ANS------------>
+
+      B] Line 2
+------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+Q:5  Which of the following statements are true?
+
+ANS----------->
+
+       A]  (a&1) always gives 0 when a is even and 1 when a is odd.
+       C]  The right shift operator is equivalent to division by 2.
+
+       D]  a^b gives 0, only if a is equal to b.
+       
+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------
