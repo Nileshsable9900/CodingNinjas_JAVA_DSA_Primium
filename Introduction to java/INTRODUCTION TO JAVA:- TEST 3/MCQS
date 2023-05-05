@@ -1,0 +1,98 @@
+Q:1   Predict the output
+Send Feedback
+What will be the output of the following code?
+public static int [] change(int input[]){
+input = new int[5];
+input[3] = 15;
+return input;
+}
+
+public static void main(String args[]){
+int arr[] = new int[15];
+arr=change(arr);
+System.out.println(arr[7]);
+}
+
+              ANS:------------>
+              
+              C] error
+              
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+Q:2  Time complexity of a code
+Send Feedback
+What will be the Time Complexity of following code in terms of ‘n’ ?
+for(i= 2; i<n; i=i+1)
+{
+   for(j = 1; j < c; j++)
+        // A line of code of Θ(1)
+}
+where c is a constant
+
+
+         ANS:------------->
+         
+         A] O(n)
+         
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------
+Q:3 Predict the output
+Send Feedback
+What will be the output of the following code?
+public static void main(String[] args) 
+{ 
+    int arr[] = new int[5]; 
+    int arr2[] = new int['a']; 
+    int bt = 10; 
+    int arr3[] = new int[bt]; 
+    System.out.print(arr.length); 
+    System.out.print(" "+arr2.length+" "); 
+    System.out.print(arr3.length); 
+} 
+
+
+       ANS:------------->
+       
+       B] 5 97 10
+       
+------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+Q:4 Predict the output
+Send Feedback
+What will be the output of the following code?
+public static void main(String args[]) 
+{ 
+    String str1 = new String ("I love coding"); 
+    String str2 = "I love coding"; 
+    boolean check=(str1=="I love coding");
+    System.out.println((str1 == str2) + " " + str1.equals(str2)+" " + check); 
+}
+
+         ANS:----------->
+         
+         D] false true false
+         
+         
+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+Q:5  Time complexity
+Send Feedback
+In a competition, four different functions are observed. All the functions use a single for loop and within the for loop, same set of statements(with constant time) are executed. Consider the following for loops:
+A) for(i = 0; i < n; i++) 
+
+B) for(i = 0; i < n; i += 2) 
+
+C) for(i = 1; i < n; i *= 2) 
+
+D) for(i = n; i > 0; i /= 2) 
+If n is the size of input(positive), which function(s) is/are the most efficient?
+
+
+         ANS:------------>
+         
+         C]  C
+         D]  D
+         
+------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+
+       
