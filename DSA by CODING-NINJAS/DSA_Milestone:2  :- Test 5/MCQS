@@ -1,0 +1,86 @@
+Q:1  Predict the output
+Send Feedback
+What will be the output of the following code ?
+class Student{
+    String name;
+    int rollNo;
+    Student(int n){
+    rollNo = n;
+    }   
+    void print(){
+    System.out.print(rollNo +" " + name+" ");
+    }
+}
+
+public class Use {
+    public static void main(String[] args) {
+    Student s = new Student(56);
+    s.print();
+    }
+}   
+
+
+                  ANS:============>
+                  
+                  C]  56 null
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+Q:2  Which keyword works as a reference to the current Object whose Method or constructor is being invoked ?
+
+             ANS:===============>
+             
+             B] this
+             
+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+Q:3  Predict the output
+Send Feedback
+What will be the output of the following code?
+class A{
+   A(){
+        System.out.print("first ");
+    }
+}
+class B extends A{
+    B(){
+        System.out.print("second ");
+    }
+}
+class C extends B{
+    C(){
+        System.out.print("third ");
+    }
+}
+class Main{
+    public static void main (String[] args) {
+        C c=new C();
+    }
+}
+
+ANS:========================>
+
+first second third
+
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+
+Q:4Correct statement
+Send Feedback
+Figure out the correct statement
+class Car{
+    String color;
+    double price;
+}
+public class new_Car {
+    public static void main(String[] args) {
+        Car c = new Car();
+        //Figure out the correct statement to set color of the car object referred by c to “black”
+    }
+}
+
+                         ANS:=================>
+                         
+                         C] c.color="black"
+                         
+ --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+ ---------------------------------------------------------------------------------------THE END----------------------------------------------------------------------------------------------------------------------
+                         
