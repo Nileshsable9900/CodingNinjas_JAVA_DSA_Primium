@@ -1,1 +1,735 @@
+ Q:1 OOPS components
+Send Feedback
+Which of the following is not an OOPS component?
+
+               ANS:=========>
+               D] Aggregation
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+Q:2 Correct Statement
+Send Feedback
+Select the correct statement(s).
+
+
+A] Encapsulation is hiding of data from outside world.
+B] Abstraction means showing only necessary details to the user.
+C] Inheritance is acquiring properties of other class. 
+
+
+
+                   ANS:===========>
+                   A] Encapsulation is hiding of data from outside world.
+                   B] Abstraction means showing only necessary details to the user.
+                   C] Inheritance is acquiring properties of other class. 
+
+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+Q:3 Keyword
+Send Feedback
+Which keyword is used to inherit a class?
+
+
+
+
+
+                   ANS:===========>
+                   B] extends
+
+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+Q:4 Properties of a class
+Send Feedback
+Which variable(s) can the class person access in the following code?
+class person{
+    String name;
+    int weight;
+}
+class Student extends person{
+    int roll_number;
+    String school_name;
+}
+
+
+
+
+
+                   ANS:===========>
+                 A] name 
+                 B] weight
+
+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+Q:5 Predict the output
+Send Feedback
+What would be the output of the following code?
+public class person {
+    String name;
+    int weight;
+}
+public class Student extends person{
+    int roll_number;
+    String school_name;
+    void print()
+    {
+        System.out.print(roll_number+" "+name+" "+weight);
+    }
+}
+public class Student_info {
+    public static void main(String[] args) {
+        Student s=new Student();
+        s.name="ayush";
+        s.roll_number=10;
+        s.weight=65;
+        s.school_name="Vijaya Sr. Sec. School";
+        s.print();
+    }
+}
+
+                                        ANS:==============>
+                                        
+                                        10 ayush 65
+            
+
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+Q:6 Properties of a class
+Send Feedback
+Which variable(s) can the class Student access in the following code?
+class person{
+    String name;
+   private int weight;
+}
+class Student extends person{
+    private int roll_number;
+    String school_name;
+}
+
+
+
+
+
+
+                   ANS:===========>
+                   A] name
+                   C] roll_number
+                   D] school_name                  
+
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+Q:7 Predict the output
+Send Feedback
+What will be the output of the following code?
+class Vehicle{
+    String colour;
+    private int number;
+}
+
+class Car extends Vehicle{
+    public static void main(String[] args) {
+        Vehicle v = new Vehicle();
+        v.colour = "black";
+        v.number = 8486;
+        System.out.println(v.number + " " + v.colour);
+    }
+}
+
+
+
+
+
+                   ANS:===========>
+                   B] Compile time error
+
+
+
+
+
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+Q:8Predict the output
+Send Feedback
+What will be the output of the following code?
+Both the classes are in same package.
+class Vehicle{
+    String colour;
+    private int number;
+    void set(int number)
+    {
+        number=number;
+    }
+    int get()
+    {
+        return number;
+    }
+}
+
+class Car extends Vehicle{
+    public static void main(String[] args) {
+        Vehicle v = new Vehicle();
+        v.colour = "white";
+        v.set(1010) ;
+        System.out.println(v.colour + " " + v.get());
+    }
+}
+
+
+
+
+
+                   ANS:===========>
+                   white 0
+
+
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+Q:9 Predict the output
+Send Feedback
+What will be the output of the following code?
+class Vehicle{
+    String colour;
+    private int number;
+    void print()
+    {
+        System.out.println("vehicle");
+    }
+}
+
+class Car extends Vehicle{
+    void print()
+    {
+        System.out.println("car");
+    }
+}
+class Honda extends Car{
+    void print()
+    {
+        System.out.println("Honda");
+    }
+}
+class buy_car{
+    public static void main (String[] args) {
+        Car c=new Car();
+        c.print();
+    }
+}
+
+
+
+
+
+                   ANS:===========>
+                   B] car
+
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+Q:10 Predict the output
+Send Feedback
+What will be the output of the following code?
+class Vehicle{
+    String colour;
+    private int number;
+    void print()
+    {
+        System.out.println("vehicle");
+    }
+}
+
+class Car extends Vehicle{
+    void print()
+    {
+        System.out.println("car");
+    }
+}
+class Honda extends Car{
+    void print()
+    {
+        System.out.println("Honda");
+    }
+}
+class buy_car{
+    public static void main (String[] args) {
+        Honda c=new Honda();
+        c.print();
+    }
+}
+
+
+
+
+
+                   ANS:===========>
+                   C]  Honda
+
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+
+Q:11 Correct Option
+Send Feedback
+Select option for access modifiers in increasing order of their visibility.
+
+
+
+
+
+                   ANS:===========>
+                 C] Private, Default, Protected, Public
+
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+Q:12 Correct Option
+Send Feedback
+The following class Vehicle, declares a protected variable name, inside package p1:
+package p1;
+
+public class Vehicle {
+    protected String name;
+}
+Which of the following code(s) will give error?
+A. 
+package p1;
+
+public class Car {
+    void props() {
+        Vehicle v = new Vehicle();
+        v.name = "Vehicle 1st";      
+    }
+}
+
+B. 
+package p2;
+
+class Car{
+    public static void main(String args[]) {
+        Car c = new Car();
+        c.name = "Ferrari";
+    }
+}
+
+C. 
+package p2;
+
+import p1.Vehicle;
+class Car {
+    void props() {
+        Vehicle v = new Vehicle();
+        v.name = "BMW";
+    }
+}
+D. 
+package p2;
+
+class Car extends Vehicle {
+    public static void main(String args[]) {
+        Car c = new Car();
+        c.name = "Ferrari";
+    }
+}
+
+
+
+
+                   ANS:===========>
+                  B] 
+                  C]
+
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+Q:13 Predict the output
+Send Feedback
+What will be the output of the following code?
+class Vehicle 
+{ 
+    int maxSpeed = 120; 
+} 
+class Car extends Vehicle 
+{ 
+    int maxSpeed = 180; 
+    void display() 
+    { 
+        System.out.println(super.maxSpeed); 
+    } 
+} 
+class Test 
+{ 
+    public static void main(String[] args) 
+    { 
+        Car c = new Car(); 
+        c.display(); 
+    } 
+} 
+
+
+
+
+
+                   ANS:===========>
+                  120
+
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+Q:14 Predict the output
+Send Feedback
+What will be the output of the following code?
+class Person 
+{ 
+    void fun() 
+    { 
+        System.out.print("person class"); 
+    } 
+} 
+class Student extends Person 
+{ 
+    void fun() 
+    { 
+        System.out.print("student class"); 
+    } 
+    void display() 
+    { 
+        fun(); 
+        super.fun(); 
+    } 
+} 
+class Test 
+{ 
+    public static void main(String args[]) 
+    { 
+        Student s = new Student(); 
+            s.display(); 
+    } 
+} 
+
+
+
+
+                   ANS:===========>
+                  student classperson class
+
+
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+Q:15 What is the output
+Send Feedback
+What Is the o/p of following code
+class Vehicle {
+    int seats;
+    int speed;
+
+    public Vehicle(int seats, int speed) {
+    System.out.print("Vehicle ");
+    this.seats = seats;
+    this.speed = speed;
+    }
+}
+
+class Car extends Vehicle {
+    int id;
+    Car() {
+    System.out.print("Car ");
+    }
+}
+
+class Main {
+    public static void main(String args[]) {
+    Car c = new Car();
+    }        
+}
+
+
+
+
+
+
+                   ANS:===========>
+                 D] Compilation error
+
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+Q:16 What is the output
+Send Feedback
+What Is The Output
+All classes are in same package.
+class Car {
+    private int seats;
+    private int speed;
+
+    public Car() {
+    System.out.print("This Is Car ");
+    }
+}
+
+class Audi extends Car {
+    Audi() {
+    System.out.print("This Is Audi ");
+    super();
+    }
+} 
+
+class Main {
+    public static void main(String args[]) {
+    Audi a = new Audi();
+    }         
+}
+
+
+
+
+
+                   ANS:===========>
+                   C] Compilation Error
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+Q:17 What is the output
+Send Feedback
+What is the output.
+All classes are in same package.
+class Car {
+    private int seats;
+    private int speed;
+
+    public Car(int seats, int speed) {
+    this.seats = seats;
+    this.speed = speed;
+    System.out.print("This Is Car ");
+    }
+}
+
+class Audi extends Car {
+    Audi(int x, int y) {
+    super(x,y); 
+    System.out.print("This Is Para Audi ");
+    }
+    void Audi() {
+    System.out.print("This Is Def Audi");
+    }
+} 
+
+class Main {
+    public static void main(String args[]) {
+    Audi a = new Audi(5,7);
+    a.Audi();
+    }         
+}
+
+
+
+
+
+
+                   ANS:===========>
+                 This Is Car This Is Para Audi This Is Def Audi
+
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+Q:18 Correct Statement
+Send Feedback
+Select the valid statement(s) on the basis of following code.
+Both classes are in same package.
+class Vehicle {}
+class Car extends Vehicle {}
+
+
+
+
+                   ANS:===========>
+                A]  Vehicle obj = new Vehicle();
+                B]  Vehicle obj = new Car();
+                C]  Car obj = new Car();
+
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+Q:19 Fill the output
+Send Feedback
+What is the output -
+All classes are in same package.
+class Vehicle{
+    void print(){
+    System.out.print("Vehicle class");
+    }
+}
+class Car extends Vehicle{
+    void print(){
+    System.out.print("Car class ");
+    }
+}
+
+public class Main {
+    public static void main(String[] args){   
+    Vehicle obj1 = new Car();
+    obj1.print();
+
+    Vehicle obj2 = new Vehicle();
+    obj2.print();  
+    }
+}
+
+
+
+
+
+
+                   ANS:===========>
+                  Car class Vehicle class
+
+
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+Q:20 Predict the output
+Send Feedback
+What will be the output of the following code?
+class Vehicle{
+    String colour;
+    private int number;
+    void print()
+    {
+        System.out.println("vehicle");
+    }
+}
+
+class Car extends Vehicle{
+    void print()
+    {
+        System.out.println("car");
+    }
+}
+class Honda extends Car{
+    void print()
+    {
+        System.out.println("Honda");
+    }
+}
+class buy_car{
+    public static void main (String[] args) {
+        Car c=new Honda();
+        c.print();
+    }
+}
+
+
+
+
+
+
+                   ANS:===========>
+                  C] Honda
+
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+Q:21Predict the output
+Send Feedback
+What will be the output of the following code?
+class ExceptionThrown 
+{ 
+    static int divideByZero(int a, int b){ 
+        int i = a/b;  
+        return i; 
+    } 
+    static int computeDivision(int a, int b) { 
+        int res =0; 
+        try
+        { 
+          res = divideByZero(a,b); 
+        } 
+        catch(NumberFormatException ex) 
+        { 
+           System.out.println("Exception occured");  
+        } 
+        return res; 
+    } 
+    public static void main(String args[]){ 
+        int a = 1; 
+        int b = 1; 
+        int i=0;  
+        try
+        { 
+             i = computeDivision(a,b); 
+
+        } 
+        catch(ArithmeticException ex) 
+        { 
+            System.out.println(ex.getMessage()); 
+        }
+        System.out.print(i);
+    } 
+} 
+
+
+
+
+
+                   ANS:===========>
+                   A] 1
+
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+Q:22 Predict the output
+Send Feedback
+What will be the output of the following code?
+class ThrowsExecp { 
+static void fun() throws Exception 
+{ 
+    throw new Exception(); 
+} 
+public static void main(String args[]) 
+{   
+    try { 
+        fun(); 
+    } 
+    catch (Exception e) { 
+        System.out.print("caught in main."); 
+    }
+    System.out.print("All is well"); 
+} 
+} 
+
+
+
+
+
+
+                   ANS:===========>
+                  caught in main.All is well 
+
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+Q:23 What is the output
+Send Feedback
+Select the output of the following program
+class A{
+    public static void main(String[] args){
+
+    try{
+        return;
+    }
+    finally{
+        System.out.println("Hello coding ninjas");
+    }
+  }
+}
+
+
+
+
+                   ANS:===========>
+                   D] Hello coding ninjas
+
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+Q:24 What is the output
+Send Feedback
+Select the output of the following program
+class A{
+    public static void main(String[] args){
+
+    try{
+       int a = 5/0;
+    }
+    catch(Exception e){
+        System.out.print("Exception caught ");
+    }
+    catch(ArithmeticException e){
+        System.out.print("Arithmetic Exception caught ");
+   }
+   finally{
+       System.out.print("finally block");
+   } 
+ }
+}
+
+
+
+
+                   ANS:===========>
+                   C] Compile time error
+
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+Q:25 Valid Statement
+Send Feedback
+Select the correct statement -
+
+
+
+                   ANS:===========>
+                   C] The ‘try’ block should be followed by either a ‘catch’ block or a ‘finally’ block.
+
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+------------------------------------THE END---------------------------------------------THE END-----------------------------------------------------THE END------------------------------------------------------
 
