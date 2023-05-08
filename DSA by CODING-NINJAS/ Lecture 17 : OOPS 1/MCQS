@@ -1,0 +1,442 @@
+Q:1  Correct Statement
+Send Feedback
+Select the correct statement(s).
+
+       ANS:========>
+       A]  OOPS refers to using objects in programming
+       B]  A class is a user defined blueprint from which objects are created.
+       D]  Object is an instance of a class.
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+Q:2  Object Creation
+Send Feedback
+Which of the following method can be used to create an object of student class?
+
+           ANS:===========>
+           
+           C] Student s1=new Student();
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+Q:3  Predict the output
+Send Feedback
+What would be the output of the following code?
+class Student{
+    int roll_number;
+    String name;
+}
+class DPS {
+    public static void main (String[] args) {
+        Student s=new Student();
+        s.roll_number=5;
+        s.name="Rohit";
+        System.out.println(s.roll_number+" "+s.name);
+    }
+}
+
+                  ANS:============>
+                  
+                  A] 5 Rohit
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+Q:4  Find the error
+Send Feedback
+Which line of the following code would give an error?
+class Car{
+    int year;
+    String company_name;
+}
+class New_Car {
+    public static void main (String[] args) {
+        Car c=new Car();        //Line 1
+        year=2018;              //Line 2
+        c.company_name="Honda"; //Line 3
+    }
+}
+
+                              ANS:===============>
+                              
+                              B] Line 2
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+Q:5  Possible output
+Send Feedback
+What can be the possible output of the following code?
+class Student{
+    int roll_no; 
+    String name;
+}
+class Test {
+        public static void main (String[] args) {
+        Student s=new Student();
+        System.out.println(s);
+    }
+}
+
+                        ANS:============>
+                        
+                        C] Student@232204a1
+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+Q:6  Access Modifiers
+Send Feedback
+Which access modifier can be used to access a variable outside the class and within the package?
+
+
+                                      ANS:=============>
+                                      
+                                      A] Public
+                                      C] Default
+                                      
+  -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+  Q:7  Check for error
+Send Feedback
+Would the following code generate any error?
+class Student{
+    private int roll_no;
+    String name;
+}
+class DPS {
+        public static void main (String[] args) {
+        Student s=new Student();
+        s.name="Neha";
+        System.out.println(s.name);
+    }
+}
+
+                                        ANS:===========>
+                                        
+                                        No
+                                        
+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+Q:8 Predict the output
+Send Feedback
+What would be the output of the following code?
+class Mobile{
+    private int year;
+    String company_name;
+}
+class new_device {
+    public static void main (String[] args) {
+        Mobile c=new Mobile();        
+        c.year=2018;              
+        c.company_name="Apple";
+        System.out.println(c.company_name); 
+    }
+}
+
+
+                               ANS:=============>
+                               
+                               C] Error
+                               
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+Q:9  Predict the output
+Send Feedback
+What will be the output of the following code?(Considering both the classes are in the same package).
+class Employee{
+    String name;
+        private int emp_id;
+    public void set_id(int id)
+    {
+        if(id>0)
+        emp_id=id;
+        else 
+        System.out.println("Invalid id");
+    }
+    public int get_id()
+    {
+        return emp_id;
+    }
+}
+class office {
+    public static void main (String[] args) {
+        Employee e=new Employee();  
+        e.set_id(10);
+        System.out.println(e.get_id());
+    }
+}
+
+
+                                          ANS:=============>
+                                          A] 10
+                                          
+  --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+ Q:10 Fill the output
+Send Feedback
+Fill the output of the following code.(Considering both the classes are in the same package.)
+class Employee{
+    String name;
+        private int emp_id;
+    public void set_id(int id)
+    {
+        if(id>0)
+        emp_id=id;
+        else 
+        System.out.println("Invalid id");
+    }
+    public int get_id()
+    {
+        return emp_id;
+    }
+    public void set_name(String n)
+    {
+        name=n;
+    }
+}
+class Office {
+    public static void main (String[] args) {
+        Employee e=new Employee();  
+        e.set_id(10);
+        e.set_name("Naman");
+        System.out.println(e.get_id()+" "+e.name);
+    }
+}
+
+
+                                            ANS:===============>
+                                            
+                                            10 Naman
+                                            
+ ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+ Q:11 Fill the output
+Send Feedback
+What will be the output of the following code?
+class Test 
+    { 
+        int a; 
+        int b; 
+
+    public void set(int a, int b) 
+    {  
+        b = a; 
+        this.b = b; 
+    } 
+
+    void display() 
+    { 
+        System.out.println("a=" + a + " b=" + b); 
+    } 
+}
+class T{
+    public static void main(String[] args) 
+    { 
+        Test object = new Test();
+        object.set(10,20);
+        object.display(); 
+    } 
+} 
+
+                                            OUTPUT:====================>
+                                            
+                                            a=0 b=10
+ --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+ Q:12  Keyword
+Send Feedback
+Which keyword is a reference variable that refers to the current object?
+
+                                    ANS:============>
+                                    B] this
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+Q:13 Predict the output
+Send Feedback
+What will be the output of the following code?
+class Ninja 
+{ 
+    Ninja(String name) 
+    { 
+        System.out.println("Constructor one " + name); 
+    } 
+    Ninja(String name, int age) 
+    { 
+        System.out.println("Constructor two " + name + " "+ age); 
+    } 
+    Ninja(long id) 
+    { 
+        System.out.println("Constructor three " + id); 
+    } 
+} 
+
+class Student 
+{ 
+    public static void main(String[] args) 
+    {  
+        Ninja geek3 = new Ninja("Dharmesh", 26); 
+    } 
+} 
+
+
+                                            ANS:================>
+                                            
+                                            B] Constructor two Dharmesh 26
+ ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+ Q:14 Predict the output
+Send Feedback
+What will be the output of the following code?
+class Test 
+{ 
+    int a; 
+    int b; 
+    Test() 
+    {   
+        this(10, 20);   
+        System.out.print("constructor one "); 
+    } 
+    Test(int a, int b) 
+    { 
+        this.a = a; 
+        this.b = b; 
+        System.out.print("constructor two "); 
+    } 
+}
+class new_test{
+    public static void main(String[] args) 
+    { 
+        Test object = new Test(); 
+    } 
+} 
+
+
+                        ANS:===========>
+                        
+                        C] constructor two constructor one
+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+Q:15  Final Keyword
+Send Feedback
+Select the correct statement(s) about final keyword?
+
+                                          ANS:================>
+                                          A] Final variable can be initialized only once and cannot be modified further.
+                                          C] We can initialize final variable inside constructor.
+                                          D]   Final keyword is a non-access modifier.
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+Q:16 Predict the output
+Send Feedback
+What will be the output of the following code?
+class Pen{
+    final int price = 15;
+}
+
+public class MCQs {
+    public static void main(String[] args) {
+        Pen p = new Pen();
+        p.price = 20;
+        System.out.println(p.price);
+    }   
+}  
+
+                                                 ANS:==================>
+                                                 
+                                                 C] Error
+   -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+   Q:17 Predict the output
+Send Feedback
+What will be the output of the following code?
+class Car{
+    static int year;
+    String company_name;
+}
+class new_Car {
+    public static void main (String[] args) {
+        Car c=new Car();        
+        Car.year=2018;              
+        c.company_name="KIA";
+        Car d=new Car();
+        System.out.print(d.year);
+    }
+}
+
+                                               ANS:==============>
+                                               
+                                               C] 2018
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+Q:18 Find the error
+Send Feedback
+Which line of the following code would generate an error?
+class Test{
+    static int marks;
+    void set_marks(int marks)
+    {
+        this.marks=marks;               //Line 1
+    }
+}
+class MCQ {
+    public static void main (String[] args) {
+        Test t=new Test();              
+        t.set_marks(78);                //Line 2
+        System.out.print(Test.marks);   //Line 3
+    }
+}
+
+                      ANS:================>
+                      
+                      D] No error
+ -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+ Q:19  Predict the output
+Send Feedback
+What would be the output of the following code?
+class Test 
+{ 
+    static int a = 10; 
+    static int b; 
+    static void fun(){ 
+        b = a * 4; 
+    } 
+} 
+class MCQ{
+   public static void main(String[] args) 
+    { 
+      Test t=new Test();
+      t.fun();
+      System.out.print(Test.a+Test.b);
+    } 
+} 
+
+                                  ANS:===============>
+                                  
+                                  C] 50
+ -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+ Q:20  Find the error
+Send Feedback
+Which of the following line(s)would produce an error?
+class Test 
+{
+    static int a = 10; 
+    int b = 20; 
+    static void fun1() 
+    { 
+        a = 20;                             //Line 1
+        b = 10;                             //Line 2
+        fun2();                             //Line 3
+        System.out.print(this.b);           //Line 4
+    } 
+    void fun2() 
+    {     
+        System.out.println("from m2"); 
+    }
+}
+class MCQ{    
+    public static void main(String[] args) 
+    { 
+        Test.fun1(); 
+    } 
+} 
+
+                                                ANS:=================>
+                                                
+                                                B] Line 2
+                                                C] Line 3
+                                                D] Line 4
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+------------------------------------------------------------------------------THE END------------------THE END---------------------THE END-----------------------------------------------------------------------
+                                                
+
+
+
+
+
+                        
+
+
+
+                                      
+                                   
+
+
+
+         
