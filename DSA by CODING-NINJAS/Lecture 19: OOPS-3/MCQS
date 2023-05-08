@@ -1,0 +1,162 @@
+ Q:1Final constructor
+Send Feedback
+Can we declare constructors as final? 
+
+               ANS:=========>
+              B] NO
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+ Q:2 What is the output
+Send Feedback
+class Base {
+    public final void show() {
+        System.out.println("Base show");
+    }
+}
+class Derived extends Base {
+    public void show() { 
+        System.out.println("Derived show");
+    }
+}
+public class Solution {
+    public static void main(String[] args) {
+        Base b = new Derived();
+        b.show();
+    }
+}
+
+               ANS:=========>
+              Compilation error
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+ Q:3 Prevent inheritance
+Send Feedback
+Which of these keywords can be used to prevent inheritance of a class?
+
+
+               ANS:=========>
+              B] final
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+ Q:4 Final class
+Send Feedback
+Final class means -
+
+
+               ANS:=========>
+              It cannot be extended
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+ Q:5 What is the output
+Send Feedback
+abstract class A {
+    int i;
+    abstract void display();
+}   
+class B extends A {
+    int j;
+    void display() {
+        System.out.println(j);
+    }
+}   
+class Main {
+    public static void main(String args[])
+    {
+        B obj = new B();
+        obj.j=2;
+        obj.display();   
+    }
+}
+
+               ANS:=========>
+              B] 2
+
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+ Q:6 Correct Statement
+Send Feedback
+Chose the correct statement for the code given below -
+public class Student{
+    public abstract double numberOfStudent();
+}
+
+
+               ANS:=========>
+              D] Class Student must be defined abstract.
+
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+ Q:7 Abstract method
+Send Feedback
+Which of the following declares an abstract method in an abstract Java class?
+
+               ANS:=========>
+              B] public abstract void method();
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+ Q:8 Incorrect Statement
+Send Feedback
+Which one of the following is not true?
+
+               ANS:=========>
+              C] An abstract class cannot have non-abstract methods
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+ Q:9What is the output
+Send Feedback
+interface calculate {
+    void cal(int item);
+}
+class display implements calculate {
+    int x;
+    public void cal(int item) {
+        x = item * item;           
+    }
+}
+class Solution {
+    public static void main(String args[]) {
+        display arr = new display();
+        arr.x = 0;     
+        arr.cal(2);
+        System.out.print(arr.x);
+    }
+}
+
+               ANS:=========>
+              C] 4
+
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+ Q:10 Interface
+Send Feedback
+Which of the following is a correct interface?
+
+               ANS:=========>
+              D] interface A { void print(); }
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+ Q:11 What is the output
+Send Feedback
+interface A{
+    public void method();
+}
+class One{
+    public void method(){
+        System.out.println("Class One method");
+    }
+}
+class Two extends One implements A{
+    public void method(){
+        System.out.println("Class Two method");
+    }
+}
+public class Solution extends Two{
+    public static void main(String[] args){
+        A a = new Two();
+        a.method();     
+    }
+}
+
+               ANS:=========>
+              B] will print Class Two method
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+ Q:12Invalid statement
+Send Feedback
+Which of the following is not true?
+
+
+               ANS:=========>
+              An interface can implement another interface.
+
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+---------------------------------------------------------------------------THE END------------------------------------------------------------------------------------------------------------------------------------
