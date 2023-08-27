@@ -1,0 +1,77 @@
+Calculator
+Send Feedback
+Given a String s, consisting of non negative integers and +,- operators as well as brackets ( and ).
+Your task is to solve the given string and print the output.
+Input Format:
+First and only line contains the string s.
+Output Format:
+Print the result of the given string.
+Constraints:
+1 <= String length <= 20000
+Sample Input 1:
+(1+2)
+Sample Output 1:
+3
+Sample Input 2:
+(1+(4+5+2)-3)+(6+8)
+Sample Output 2:
+23
+
+                                                                   SOLUTION:===================>
+
+import java.util.*;
+import java.lang.*;
+import java.io.*;
+
+public class Solution {
+    public static void main (String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        String s = scanner.next();
+        System.out.println(calculate(s));
+    }
+    static int index = 0;
+    public static int calculate(String s) {
+        int output = 0, n = s.length();
+        char operation = '+'; // default
+
+        while(index < n) {
+            while(index < n && Character.isWhitespace(s.charAt(index))) {
+                index++;
+            }
+
+            int currNumber = 0;
+            while(index < n && Character.isDigit(s.charAt(index))) {
+                currNumber = (currNumber * 10) + (s.charAt(index) - '0');
+                index++;
+            }
+
+            while(index < n && Character.isWhitespace(s.charAt(index))) {
+                index++;
+            }
+
+            if(operation == '+') {
+                output += currNumber;
+            } else if(operation == '-'){
+                output -= currNumber;
+            }
+
+            if(index < n && s.charAt(index) == '(') {
+                index++;
+                int evaluated = calculate(s);
+                if(operation == '+') output += evaluated;
+                else output -= evaluated;
+            }
+
+            if(index < n && s.charAt(index) == ')') {
+                index++; // return to above level
+                break;
+            }
+
+            if(index < n && index < n) {
+                operation = s.charAt(index);
+            }
+            index++;
+        }
+        return output;
+    }
+}
