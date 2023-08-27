@@ -1,0 +1,463 @@
+Skill Test 4 Set 1:---------------->
+Q: Limited Subway Surfer
+public class Solution {
+    static public int minLaneChanges(int[] A) {
+     	int[] dp = new int[]{1, 0, 1};
+        for (int a: A) {
+            if (a > 0)
+                dp[a - 1] = 1000000;
+            for (int i = 0; i < 3; ++i)
+                if (a != i + 1)
+                    dp[i] = Math.min(dp[i], Math.min(dp[(i + 1) % 3], dp[(i + 2) % 3]) + 1);
+        }
+        return Math.min(dp[0], Math.min(dp[1], dp[2]));
+    }    
+ 
+}
+
+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+Q: Minimum Character Deletion
+import java.util.HashMap;
+import java.util.Map;
+import java.util.PriorityQueue;
+
+public class Solution {
+
+    static int minCntCharDeletionsfrequency(char[] str,
+                                            int N)
+    {
+        // Stores frequency of each
+        // distinct character of str
+        HashMap<Character,
+                        Integer> mp =
+                new HashMap<>();
+
+        // Store frequency of each distinct
+        // character such that the largest
+        // frequency is present at the top
+        PriorityQueue<Integer> pq =
+                new PriorityQueue<>((x, y) ->
+                        Integer.compare(y, x));
+
+        // Stores minimum count of characters
+        // required to be deleted to make
+        // frequency of each character unique
+        int cntChar = 0;
+
+        // Traverse the String
+        for (int i = 0; i < N; i++)
+        {
+            // Update frequency of str[i]
+            if(mp.containsKey(str[i]))
+            {
+                mp.put(str[i],
+                        mp.get(str[i]) + 1);
+            }
+            else
+            {
+                mp.put(str[i], 1);
+            }
+        }
+
+        // Traverse the map
+        for (Map.Entry<Character,
+                Integer> it :
+                mp.entrySet())
+        {
+            // Insert current
+            // frequency into pq
+            pq.add(it.getValue());
+        }
+
+        // Traverse the priority_queue
+        while (!pq.isEmpty())
+        {
+            // Stores topmost
+            // element of pq
+            int frequent = pq.peek();
+
+            // Pop the topmost element
+            pq.remove();
+
+            // If pq is empty
+            if (pq.isEmpty()) {
+
+                // Return cntChar
+                return cntChar;
+            }
+
+            // If frequent and topmost
+            // element of pq are equal
+            if (frequent == pq.peek())
+            {
+                // If frequency of the topmost
+                // element is greater than 1
+                if (frequent > 1)
+                {
+                    // Insert the decremented
+                    // value of frequent
+                    pq.add(frequent - 1);
+                }
+
+                // Update cntChar
+                cntChar++;
+            }
+        }
+
+        return cntChar;
+    }
+
+    public static int minCharDeletion(String str) {
+        return minCntCharDeletionsfrequency(str.toCharArray(),str.length());
+    }
+}
+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+Q: Number of Atoms
+/*
+    Time Complexity : O(N ^ 2)
+    Space Complexity :  O(N)
+
+    Where N is the length of the given string/formula.
+*/
+
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Comparator;
+import java.util.HashMap;
+import java.lang.Character.*;
+
+class Number {
+	int value;
+
+	Number(int value) {
+		this.value = value;
+	}
+}
+
+class Pair {
+
+	String monoAtom;
+	int count;
+
+	Pair(String monoAtom, int count) {
+		this.monoAtom = monoAtom;
+		this.count = count;
+	}
+}
+
+class SortComparator implements Comparator<Pair> {
+
+	@Override
+	public int compare(Pair p1, Pair p2) {
+
+		return p1.monoAtom.compareTo(p2.monoAtom);
+	}
+
+}
+
+public class Solution {
+
+	public static void countNumberOfAtomsHelper(String formula, Number index, HashMap<String, Integer> cntOfAtoms,
+			int n) {
+		// String to store the element name.
+		String element = "";
+
+		// Variable to store the count of the current atom.
+		int atomCount = 0;
+
+		while (index.value < n && (formula.charAt(index.value) != ')')) {
+			element = "";
+			atomCount = 0;
+
+			// Check for any uppercase alphabets for the element name.
+			if (Character.isLetter(formula.charAt(index.value)) && Character.isUpperCase(formula.charAt(index.value))) {
+
+				element += formula.charAt(index.value++);
+			}
+
+			// Then check if the uppercase alphabets are followed by any lowercase alphabets.
+			while (index.value < n && Character.isLetter(formula.charAt(index.value))
+					&& Character.isLowerCase(formula.charAt(index.value))) {
+
+				element += formula.charAt(index.value++);
+			}
+
+			// Check for digits following the alphabets and update the atomCount value.
+			while (index.value < n && Character.isDigit(formula.charAt(index.value))) {
+				atomCount = atomCount * 10 + (formula.charAt(index.value++) - '0');
+			}
+
+			// If there were no digits then we want to set a value of '1' for the atomCount.
+			if (atomCount == 0) {
+				atomCount = 1;
+			}
+
+			// Update the count of the element in the map.
+			if (element != "") {
+				if (cntOfAtoms.containsKey(element))
+					cntOfAtoms.put(element, cntOfAtoms.get(element) + atomCount);
+				else
+					cntOfAtoms.put(element, atomCount);
+
+			}
+
+			// If we encounter '(' then we need to recursively process the string within ().
+			if (index.value < n && formula.charAt(index.value) == '(') {
+				index.value++;
+
+				// Create a new inner map which will be populated in the recursion call.
+				HashMap<String, Integer> innerFormulaCnt = new HashMap<>();
+
+				// Recursively call the function again with the new Inner map.
+				countNumberOfAtomsHelper(formula, index, innerFormulaCnt, n);
+
+				// After the recursive call, update the main map with the contents of the inner.
+				// Map.
+				for (String key : innerFormulaCnt.keySet()) {
+					if (cntOfAtoms.containsKey(key))
+						cntOfAtoms.put(key, cntOfAtoms.get(key) + innerFormulaCnt.get(key));
+					else
+						cntOfAtoms.put(key, innerFormulaCnt.get(key));
+				}
+			}
+		}
+
+		// If we encountered ')', then we have to check if a digit follows it.
+		// If a digits exists after ')' then we have to multiple all our atom's value with the digit.
+		if (index.value < n && formula.charAt(index.value) == ')') {
+
+			index.value++;
+			atomCount = 0;
+
+			// Build the complete digit value.
+			while (index.value < n && Character.isDigit(formula.charAt(index.value))) {
+				atomCount = atomCount * 10 + (formula.charAt(index.value++) - '0');
+			}
+
+			// If there were no digits then we want to set a value of '1' for the atomCount.
+			if (atomCount == 0) {
+				atomCount = 1;
+			}
+
+			for (String key : cntOfAtoms.keySet()) {
+				cntOfAtoms.put(key, cntOfAtoms.get(key) * atomCount);
+			}
+		}
+	}
+
+	public static String countNumberOfAtoms(String formula) {
+
+		// Map to store the count of atoms.
+		HashMap<String, Integer> cntOfAtoms = new HashMap<>();
+
+		Number index = new Number(0);
+		countNumberOfAtomsHelper(formula, index, cntOfAtoms, formula.length());
+
+		// Vector that will store the final count of atoms.
+		ArrayList<Pair> atomCnt = new ArrayList<>();
+
+		for (String key : cntOfAtoms.keySet()) {
+			Pair p = new Pair(key, cntOfAtoms.get(key));
+			atomCnt.add(p);
+		}
+
+		// Sort the vector to get elements in lexicographical order.
+		Collections.sort(atomCnt, new SortComparator());
+
+		// String to store the final result.
+		String ans = "";
+
+		// Build a string from the vector.
+		for (Pair atom : atomCnt) {
+
+			String monoAtom = atom.monoAtom;
+			int cnt = atom.count;
+
+			ans += monoAtom;
+
+			if (cnt > 1) {
+				ans += cnt;
+			}
+		}
+
+		return ans;
+	}
+}
+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+Q: Special Walk
+#include<bits/stdc++.h>
+
+using namespace std;
+
+void dfs1(int i,vector<int>adj[],int n,stack<int>&s,vector<bool>&vis)
+
+{
+
+    vis[i]=true;
+
+    for(auto j:adj[i])
+
+    if(!vis[j])
+
+    dfs1(j,adj,n,s,vis);
+
+
+ 
+
+    s.push(i);
+
+}
+
+void dfs2(int i,vector<int>adj[],vector<bool>&vis,vector<int>&temp)
+
+{
+
+    vis[i]=true;
+
+    temp.push_back(i);
+
+    for(auto j:adj[i])
+
+    if(!vis[j])
+
+    {
+
+        dfs2(j,adj,vis,temp);
+
+    
+
+    }   
+
+}
+
+void findSSC(vector<int>adj[],int n)
+
+{
+
+    stack<int>s;
+
+    vector<bool>vis(n,false);
+
+for(int i=0;i<n;i++)
+
+     {if(!vis[i])
+
+     dfs1(i,adj,n,s,vis);}
+
+
+ 
+
+     for(int i=0;i<n;i++)
+
+     vis[i]=false;
+
+
+ 
+
+     vector<int>rev[n];
+
+     for(int i=0;i<n;i++)
+
+     {
+
+         for(auto j:adj[i])
+
+         rev[j].push_back(i);
+
+     }
+
+     vector<vector<int>>res;
+
+     while(!s.empty())
+
+     {
+
+         int curr=s.top();
+
+         s.pop();
+
+         if(!vis[curr])
+
+         {
+
+             vector<int>temp;
+
+             dfs2(curr,rev,vis,temp);
+
+             res.push_back(temp);
+
+             temp.clear();
+
+         }
+
+     }
+
+     set<int>ss;
+
+     for(int i=0;i<res.size();i++)
+
+     {
+
+        vector<int>t=res[i];
+
+        if(t.size()>=3)
+
+        {
+
+            for(int j=0;j<t.size();j++)
+
+            ss.insert(t[j]);
+
+        }
+
+     }
+
+     for(int i=0;i<n;i++)
+
+     {
+
+         if(ss.find(i)!=ss.end())
+
+         cout<<"1"<<" ";
+
+         else
+
+         cout<<"0"<<" ";
+
+     }
+
+}
+
+int main(){
+
+    int n,m;
+
+    cin>>n>>m;
+
+    vector<int>adj[n];
+
+    for(int i=0;i<m;i++)
+
+    {
+
+        int x;
+
+        int y;
+
+        cin>>x>>y;
+
+        x--;
+
+        y--;
+
+        adj[x].push_back(y);
+
+    }
+
+    findSSC(adj,n);
+
+    return 0;
+
+}
+---------------------------------------------------------------------------------------------THE END---------------------------------------------------------------------------------------------------------------
