@@ -1,0 +1,126 @@
+Q:1:Binary strings with no consecutive 1s.
+import java.util.ArrayList;
+import java.util.Scanner;
+
+public class Solution {
+    
+    static void generate(int k, char[] ch, int n,ArrayList<String> arrayList) {
+
+        if (n == k) {
+
+            // Printing the Generated String**
+            // Return to the previous case*
+            arrayList.add(new String(ch));
+            return;
+
+        }
+
+        // If the first Character is
+        //Zero then adding**
+        if (ch[n - 1] == '0') {
+            ch[n] = '0';
+            generate(k, ch, n + 1,arrayList);
+            ch[n] = '1';
+            generate(k, ch, n + 1,arrayList);
+        }
+
+        // If the Character is One
+        // then add Zero to next**
+        if (ch[n - 1] == '1') {
+
+            ch[n] = '0';
+
+            // Calling Recursively for the
+            // next value of Array
+            generate(k, ch, n + 1,arrayList);
+
+        }
+    }
+
+    public static ArrayList<String> generateString(int n) {
+        ArrayList<String> arrayList = new ArrayList<>();
+        if (n==0) return arrayList;
+        char[] ch = new char[n];
+
+        // Initializing first character to Zero
+        ch[0] = '0';
+
+        // Generating Strings starting with Zero--
+        generate(n, ch, 1,arrayList);
+
+        // Initialized first Character to one--
+        ch[0] = '1';
+        generate(n, ch, 1,arrayList);
+        return arrayList;
+    }
+}
+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+Q:2:Maximum Subarray Sum
+
+public class Solution {
+	
+	public static long maxSubarraySum(int[] nums, int n) {
+		long maxsum = Long.MIN_VALUE, s=0;
+for (long i : nums){
+s = s+i;
+if (s>maxsum)
+maxsum=s;
+if (s<0){
+s = 0;
+}
+}
+return maxsum;
+	}
+
+}
+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+Q:3:Modulo product
+
+
+import java.util.Scanner;
+
+public class Main {
+
+public static long modularExp(long x, long y, long p) {
+long ans = 1;
+x = x % p;
+while(y > 0) {
+if(y % 2 != 0) {
+ans = (ans * x) % p;
+}
+y = y >> 1;
+x = (x * x) % p;
+}
+return ans;
+}
+
+public static long inverseMod(long n,long p) {
+return modularExp(n, p - 2, p);
+}
+
+public static long factorialMod(long n, long p) {
+if(n >= p) {
+return 0;
+}
+long ans = (p - 1);
+for(long i = n + 1;i < p;i++) {
+ans = (ans * inverseMod(i, p)) % p;
+}
+return ans;
+}
+
+public static void main(String[] args) {
+Scanner s = new Scanner(System.in);
+long t = s.nextLong();
+while(t > 0) {
+long n = s.nextInt();
+long p = s.nextInt();
+long ans = factorialMod(n, p);
+System.out.println(ans);
+t--;
+}
+}
+}
+
+
+
