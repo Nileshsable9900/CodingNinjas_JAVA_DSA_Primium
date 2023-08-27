@@ -1,0 +1,110 @@
+Q:1:Donuts
+import java.util.Scanner;
+
+public class Solution {
+
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        int t = scanner.nextInt();
+        for (int i = 0; i < t; i++) {
+            int minWeight = 0;
+            int n = scanner.nextInt();
+            int addNum = n/4;
+            int[] arr  = new int[n];
+            for (int j=0;j<arr.length;j++){
+                arr[j] = scanner.nextInt();
+            }
+            for (int k =0;k<arr.length;k++){
+                int min=arr[k];
+                int pos = k;
+                for (int j =k+1;j< arr.length;j++){
+                    if (min>arr[j]){
+                        min= arr[j];
+                        pos = j;
+                    }
+                }
+                if (min!=arr[k]){
+                    int temp = arr[pos];
+                    arr[pos] = arr[k];
+                    arr[k] = temp;
+
+                }
+            }
+            int k = arr.length-3;
+            for (int j = 0; j < addNum; j++) {
+                minWeight += arr[k];
+                k-=3;
+            }
+            System.out.println(minWeight);
+        }
+    }
+}
+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+Q:2: Maximum Subarray Sum
+import java.util.Scanner;
+
+public class Main {
+
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        int n = scanner.nextInt();
+        int[] arr = new int[n];
+        for (int j = 0; j < arr.length; j++) {
+            arr[j] = scanner.nextInt();
+        }
+        System.out.println(maxSubArray(arr));
+    }
+
+    public static int maxSubArray(int[] A) {
+        int maxSoFar = A[0], maxEndingHere = A[0];
+        for (int i = 1; i < A.length; ++i) {
+            maxEndingHere = Math.max(maxEndingHere + A[i], A[i]);
+            maxSoFar = Math.max(maxSoFar, maxEndingHere);
+        }
+        return maxSoFar;
+    }
+}
+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+Q:3:Number Star Pattern
+import java.util.Scanner;
+
+public class Solution {
+
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        int N = scanner.nextInt();
+        for (int i = N; i >0; i--) {
+            for (int j = N; j >0; j--) {
+                if (i+1 <= N-j+1) System.out.print("*");
+                else System.out.print(N-j+1);
+            }
+            for (int j = N; j >0; j--) {
+                if (i+1 <= j) System.out.print("*");
+                else System.out.print(j);
+            }
+            System.out.println();
+        }
+
+    }
+}
+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+Q:4:One Strings
+public class Solution {
+    
+    public static int sum(int n){
+        return (n*(n+1))/2;
+    }
+
+    public static int findOneStrings(String str) {
+        int count = 0,sum = 0;
+        for (int i = 0; i < str.length(); i++) {
+            if (str.charAt(i) == '1') count++;
+            else {
+                sum += sum(count);
+                count = 0;
+            }
+        }
+        sum += sum(count);
+        return sum;
+    }
+}
