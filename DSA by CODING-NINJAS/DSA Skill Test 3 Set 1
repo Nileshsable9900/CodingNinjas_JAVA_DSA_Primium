@@ -1,0 +1,101 @@
+
+Q:1:Isomorphic Trees
+
+
+/*class BinaryTreeNode<T> {
+ public T data;
+ public BinaryTreeNode<T> left;
+ public BinaryTreeNode<T> right;
+
+ public BinaryTreeNode(T data) {
+ this.data = data;
+ left=null;
+ right=null;
+ }*/
+public class solution {
+
+	static boolean isIsomorphic(BinaryTreeNode<Integer> n1, BinaryTreeNode<Integer> n2) {
+		if (n1 == null && n2 == null)
+            return true;
+  
+        // Exactly one of the n1 and n2 is NULL, trees not isomorphic
+        if (n1 == null || n2 == null)
+            return false;
+  
+        if (n1.data != n2.data)
+            return false;
+  
+        // There are two possible cases for n1 and n2 to be isomorphic
+        // Case 1: The subtrees rooted at these nodes have NOT been
+        // "Flipped".
+        // Both of these subtrees have to be isomorphic.
+        // Case 2: The subtrees rooted at these nodes have been "Flipped"
+        return (isIsomorphic(n1.left, n2.left) &&
+                                         isIsomorphic(n1.right, n2.right))
+        || (isIsomorphic(n1.left, n2.right) &&
+                                         isIsomorphic(n1.right, n2.left));
+	}
+}
+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+Q:2:Linked List Matrix
+public class Solution {
+
+    static Node construct(int[][] arr, int n) {
+        if (arr.length == 0) return null;
+        Node head = new Node(arr[0][0]), temp = head;
+        for (int i = 0; i < arr.length; i++) {
+            Node head2 = temp;
+            for (int j = 0; j < arr[i].length; j++) {
+                temp.right = j == arr[0].length - 1 ? null : new Node(arr[i][j + 1]);
+                temp.down = i == arr.length - 1 ? null : new Node(arr[i + 1][j]);
+                temp = temp.right;
+            }
+            temp = head2;
+            temp = temp.down;
+        }
+        return head;
+    }
+}
+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+Q:3:War on NinjaLand
+public class Solution {
+
+    static int state(TreeNode<Integer> root) {
+        if (root.children.size() == 0) return 0;
+        boolean got = false;
+        for (int i = 0; i < root.children.size(); i++) {
+            int a = state(root.children.get(i));
+            if (a == 0) return 2;
+            if (a == 2) got = true;
+        }
+        if (got) return 1;
+        return 0;
+    }
+    
+    
+
+    static int minLandingCover(TreeNode<Integer> root,boolean main) {
+        int count = 0;
+        for (TreeNode<Integer> node : root.children) {
+            count += minLandingCover(node,false);
+        }
+        int a = state(root);
+        if (a == 2) count++;
+        if (main && a==0) count++;
+        return count;
+    }
+
+    static int minLandingCover(TreeNode<Integer> root){
+        return minLandingCover(root,true);
+    }
+
+    static void printAns(int allowed, int ans) {
+        if (ans <= allowed) {
+            System.out.println(ans + " Mission Successful");
+        } else {
+            System.out.println(ans + " Mission Unsuccessful");
+        }
+    }
+
+}
+------------------------------------------------------------------------------------------------------THE END-----------------------------------------------------------------------------------------------------
