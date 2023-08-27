@@ -1,0 +1,48 @@
+Sort an array
+Send Feedback
+Given an array A[] of integers, sort the array according to frequency of elements. That is elements that have higher frequency come first. If frequencies of two elements are same, then smaller number comes first.
+Input Format:
+The first line contains a single integer N denoting the size of array. The second line contains N space-separated integers A1, A2, ..., AN denoting the elements of the array. 
+Output Format:
+Print the soted array seperated by a space.
+Example:
+Input:
+6
+1 2 2 2 3 3
+Output:
+2 2 2 3 3 1
+
+                                                                             SOLUTION:================>
+
+import java.util.*;
+public class Solution {
+    public static void main(String[] args)
+    {
+       Scanner scanner = new Scanner(System.in);
+       int n = scanner.nextInt();
+       int[] arr = new int[n];
+       for(int i =0; i<n;i++){
+           arr[i] = scanner.nextInt();
+       }
+       int[] result = frequencySort(arr);
+       for(int i = n-1; i>=0;i--){
+           System.out.print(result[i]+" ");
+       }
+    }
+    public static int[] frequencySort(int[] nums) {
+        Map<Integer, Integer> map = new HashMap<>();
+        PriorityQueue<Integer> pq = new PriorityQueue<>((a,b) -> map.get(a) == map.get(b) ? b - a: map.get(a) - map.get(b));
+        for (int i = 0 ; i < nums.length; i++) {
+            map.put(nums[i], map.getOrDefault(nums[i], 0) + 1);
+        }
+        for (int i = 0 ; i < nums.length; i++) {
+            pq.offer(nums[i]);
+        }
+        int n = nums.length;
+        int [] result = new int[n];
+        for (int i = 0; i < n; i++) {
+            result[i] = pq.poll();
+        }
+        return result;
+    }
+}
