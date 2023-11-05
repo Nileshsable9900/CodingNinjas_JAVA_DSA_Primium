@@ -1,0 +1,24 @@
+Solution:------>
+
+import java.util.HashMap;
+
+public class Solution {
+
+    public static int maxFrequencyNumber(int[] arr) {
+        HashMap<Integer, Integer> hashMap = new HashMap<>();
+        for (int j : arr) {
+            if (!hashMap.containsKey(j)) {
+                hashMap.put(j, 1);
+                continue;
+            }
+            hashMap.put(j, hashMap.get(j) + 1);
+        }
+        int max = arr[0];
+        for (int i : arr) {
+            if (hashMap.get(i) > hashMap.get(max)){
+                max = i;
+            }
+        }
+        return max;
+    }
+}
