@@ -2,15 +2,21 @@ Solution:-------->
 
 public class Solution {
 
-	public static void preOrder(BinaryTreeNode<Integer> root) {
-		//Your code goes here
-        if (root==null)
-        {
-            return;
-        }
-        System.out.print(root.data+" ");
-        preOrder(root.left);
-        preOrder(root.right);
+	public static int getSum(BinaryTreeNode<Integer> root) {
+		//Your code goes here.
+		int getSum(BinaryTreeNode<int> *root)
+{
+    // Write your code here
+    if (root == NULL)
+        return 0;
+    int sum = 0;
+    if (root->left != NULL)
+        sum = sum + getSum(root->left);
+    if (root->right != NULL)
+        sum = sum + getSum(root->right);
+    sum = sum + root->data;
+    return sum;
+}
 	}
 
 }
